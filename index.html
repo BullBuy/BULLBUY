@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BullBuy Meme Coin | Solana</title>
+  <style>
+    /* Reset & Alapbeállítások */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #030a16;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    /* Fejléc / Navigáció */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background: rgba(3, 10, 22, 0.85);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(0, 183, 255, 0.15);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #38ef7d;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    nav a {
+      color: #d1d5db;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #00d2ff;
+    }
+
+    .buy-btn {
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
+      color: white;
+      padding: 10px 24px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 4px 15px rgba(0, 198, 255, 0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .buy-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 198, 255, 0.6);
+    }
+
+    /* Hero Szekció */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 120px 20px 60px;
+      position: relative;
+      background: radial-gradient(circle at center, #0a1931 0%, #030a16 70%);
+    }
+
+    /* Fő Bika Logó / Kép helye */
+    .hero-logo {
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      box-shadow: 0 0 50px rgba(0, 183, 255, 0.4);
+      margin-bottom: 30px;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+    }
+
+    /* Leírás kártya */
+    .description-card {
+      max-width: 800px;
+      background: rgba(10, 25, 49, 0.6);
+      border: 1px solid rgba(0, 198, 255, 0.2);
+      border-radius: 16px;
+      padding: 30px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      line-height: 1.6;
+      color: #e2e8f0;
+      margin-bottom: 30px;
+    }
+
+    .description-card a {
+      color: #00d2ff;
+      text-decoration: underline;
+    }
+
+    /* Contract Address (CA) Másoló mező */
+    .ca-box {
+      background: #061224;
+      border: 1px dashed #00d2ff;
+      padding: 12px 25px;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 30px;
+      font-family: monospace;
+      font-size: 0.95rem;
+      color: #f1f5f9;
+    }
+
+    .copy-btn {
+      background: #00d2ff;
+      border: none;
+      color: #030a16;
+      padding: 6px 15px;
+      border-radius: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .copy-btn:hover {
+      background: #38ef7d;
+    }
+
+    /* Közösségi gombok */
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 40px;
+    }
+
+    .social-btn {
+      padding: 10px 20px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      color: white;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: background 0.3s;
+    }
+
+    .social-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Footer / Jogi Nyilatkozat */
+    footer {
+      background: #02060e;
+      padding: 30px 20px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #64748b;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .disclaimer {
+      max-width: 900px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+
+    /* Reszponzivitás (Mobil nézet) */
+    @media (max-width: 768px) {
+      header {
+        padding: 15px 20px;
+      }
+      nav {
+        display: none; /* Mobil menü gombra cserélhető */
+      }
+      .hero-logo {
+        width: 200px;
+        height: 200px;
+      }
+      .description-card {
+        padding: 20px;
+        font-size: 0.95rem;
+      }
+      .ca-box {
+        flex-direction: column;
+        gap: 8px;
+        word-break: break-all;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-container">
+      <span>🐂 BULLBUY</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#tokenomics">Tokenomics</a></li>
+        <li><a href="#risk">Risk Details</a></li>
+      </ul>
+    </nav>
+    <a href="https://pump.fun" target="_blank" class="buy-btn">Buy on Pump.fun</a>
+  </header>
+
+  <section class="hero" id="about">
+    
+    <img src="bullbuy_logo.jpg" alt="BullBuy Logo" class="hero-logo">
+
+    <div class="description-card">
+      <p>
+        BullBuy is a Meme-Coin built on the Solana system. It enables users to trade and invest. Like other meme coins, BullBuy can exhibit high volatility due to its speculative nature, and its success primarily depends on community-driven growth and social media hype.
+      </p>
+      <br>
+      <p>
+        Experimental cryptoassets can be riskier than other cryptoassets and require careful consideration. More details on these risks can be found <a href="#risk" id="risk">here</a>.
+      </p>
+    </div>
+
+    <div class="ca-box">
+      <span>CA: <strong id="ca-text">PumpFunTokenAddressWillBeHere111111111111</strong></span>
+      <button class="copy-btn" onclick="copyCA()">Copy CA</button>
+    </div>
+
+    <div class="social-links">
+      <a href="https://x.com" target="_blank" class="social-btn">Twitter / X</a>
+      <a href="https://t.me" target="_blank" class="social-btn">Telegram</a>
+      <a href="https://pump.fun" target="_blank" class="social-btn">Pump.fun</a>
+    </div>
+
+  </section>
+
+  <footer>
+    <div class="disclaimer">
+      <p><strong>Disclaimer:</strong> $BULLBUY is a meme coin created for entertainment purposes with no intrinsic value or expectation of financial return. It is deployed on Solana via Pump.fun. Cryptocurrencies and experimental digital assets involve high risk, extreme volatility, and potential total loss of capital. This website does not constitute financial advice.</p>
+      <br>
+      <p>&copy; 2026 BullBuy Coin. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function copyCA() {
+      const caText = document.getElementById("ca-text").innerText;
+      navigator.clipboard.writeText(caText).then(() => {
+        alert("Contract Address copied to clipboard!");
+      }).catch(err => {
+        console.error("Failed to copy: ", err);
+      });
+    }
+  </script>
+
+</body>
+</html>
