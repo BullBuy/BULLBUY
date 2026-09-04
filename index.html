@@ -22,13 +22,11 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      /* A kép a teljes oldal háttere, középre igazítva és nyújtás/torzulás nélkül */
       background: url('bullbuy_logo.jpg') no-repeat center center fixed;
       background-size: cover;
       position: relative;
     }
 
-    /* Finom sötétítő réteg a szövegek és gombok jobb olvashatóságáért */
     body::before {
       content: '';
       position: absolute;
@@ -45,7 +43,6 @@
       z-index: 2;
     }
 
-    /* Navigáció - Bal felső logó eltávolítva */
     header {
       display: flex;
       justify-content: flex-end;
@@ -90,7 +87,6 @@
       color: #fff;
     }
 
-    /* Középső interaktív sáv a Contract Address részére */
     main {
       flex: 1;
       display: flex;
@@ -144,7 +140,6 @@
       background: #38ef7d;
     }
 
-    /* Lábléc & Disclaimer */
     footer {
       background: rgba(5, 8, 18, 0.85);
       backdrop-filter: blur(10px);
@@ -184,6 +179,7 @@
         justify-content: center;
         padding: 15px;
       }
+
       .contract-container {
         flex-direction: column;
         border-radius: 20px;
@@ -192,53 +188,115 @@
     }
   </style>
 </head>
+
 <body>
 
-  <!-- Navigáció (bal oldali logó eltávolítva) -->
+  <!-- Navigáció -->
   <header>
     <nav>
       <a href="#about">About</a>
       <a href="#tokenomics">Tokenomics</a>
       <a href="#community">Community</a>
-      <a href="https://pump.fun" target="_blank" class="btn-buy">Buy Now</a>
+
+      <!-- Pump.fun BullBuy link -->
+      <a href="https://pump.fun/coin/C9MbbSgGj2ze6hYWuSMqqidn6pjGm5DwKzAjz4xJpump?highlight_callout=98385212-1cd8-4df9-8533-8030eef12714"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="btn-buy">
+        Buy Now
+      </a>
     </nav>
   </header>
 
   <!-- Fő tartalom: Contract Address másoló gomb -->
   <main>
     <div class="contract-container">
+
       <span class="contract-label">CA:</span>
-      <span class="contract-address" id="ca">PumpFunContractAddressHere111111111111111</span>
-      <button class="copy-btn" onclick="copyCA()">Copy</button>
+
+      <span class="contract-address" id="ca">
+        C9MbbSgGj2ze6hYWuSMqqidn6pjGm5DwKzAjz4xJpump
+      </span>
+
+      <button class="copy-btn" onclick="copyCA()">
+        Copy
+      </button>
+
     </div>
   </main>
 
-  <!-- Lábléc & Felelősségkizárás -->
+  <!-- Lábléc -->
   <footer>
+
     <div class="social-links">
-      <a href="https://x.com" target="_blank">X (Twitter)</a>
-      <a href="https://t.me" target="_blank">Telegram</a>
-      <a href="https://pump.fun" target="_blank">Pump.fun</a>
+
+      <a href="https://x.com"
+         target="_blank"
+         rel="noopener noreferrer">
+        X (Twitter)
+      </a>
+
+      <a href="https://t.me"
+         target="_blank"
+         rel="noopener noreferrer">
+        Telegram
+      </a>
+
+      <!-- Pump.fun BullBuy link -->
+      <a href="https://pump.fun/coin/C9MbbSgGj2ze6hYWuSMqqidn6pjGm5DwKzAjz4xJpump?highlight_callout=98385212-1cd8-4df9-8533-8030eef12714"
+         target="_blank"
+         rel="noopener noreferrer">
+        Pump.fun
+      </a>
+
     </div>
+
     <div class="disclaimer">
-      <p><strong>Disclaimer:</strong> $BULLBUY is a meme coin created for entertainment purposes only with no intrinsic value or expectation of financial return. Crypto investments carry high risks. Always do your own research (DYOR).</p>
-      <p style="margin-top: 8px;">© 2026 BullBuy Coin. All rights reserved.</p>
+
+      <p>
+        <strong>Disclaimer:</strong>
+        $BULLBUY is a meme coin created for entertainment purposes only
+        with no intrinsic value or expectation of financial return.
+        Crypto investments carry high risks. Always do your own research (DYOR).
+      </p>
+
+      <p style="margin-top: 8px;">
+        © 2026 BullBuy Coin. All rights reserved.
+      </p>
+
     </div>
+
   </footer>
 
   <script>
+
     function copyCA() {
-      const caText = document.getElementById("ca").innerText;
+
+      const caText = document.getElementById("ca").innerText.trim();
+
       navigator.clipboard.writeText(caText).then(() => {
+
         const btn = document.querySelector('.copy-btn');
+
         btn.innerText = "Copied!";
         btn.style.background = "#38ef7d";
+
         setTimeout(() => {
+
           btn.innerText = "Copy";
           btn.style.background = "#00d2ff";
+
         }, 2000);
+
+      }).catch(() => {
+
+        alert("Unable to copy the contract address.");
+
       });
+
     }
+
   </script>
+
 </body>
 </html>
