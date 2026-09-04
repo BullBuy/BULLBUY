@@ -198,7 +198,6 @@
       <a href="#tokenomics">Tokenomics</a>
       <a href="#community">Community</a>
 
-      <!-- Pump.fun BullBuy link -->
       <a href="https://pump.fun/coin/C9MbbSgGj2ze6hYWuSMqqidn6pjGm5DwKzAjz4xJpump?highlight_callout=98385212-1cd8-4df9-8533-8030eef12714"
          target="_blank"
          rel="noopener noreferrer"
@@ -208,26 +207,23 @@
     </nav>
   </header>
 
-  <!-- Fő tartalom: Contract Address másoló gomb -->
+  <!-- Pump.fun link másolása -->
   <main>
     <div class="contract-container">
-
       <span class="contract-label">CA:</span>
 
       <span class="contract-address" id="ca">
-        C9MbbSgGj2ze6hYWuSMqqidn6pjGm5DwKzAjz4xJpump
+        https://pump.fun/coin/C9MbbSgGj2ze6hYWuSMqqidn6pjGm5DwKzAjz4xJpump?highlight_callout=98385212-1cd8-4df9-8533-8030eef12714
       </span>
 
       <button class="copy-btn" onclick="copyCA()">
         Copy
       </button>
-
     </div>
   </main>
 
   <!-- Lábléc -->
   <footer>
-
     <div class="social-links">
 
       <a href="https://x.com"
@@ -242,7 +238,6 @@
         Telegram
       </a>
 
-      <!-- Pump.fun BullBuy link -->
       <a href="https://pump.fun/coin/C9MbbSgGj2ze6hYWuSMqqidn6pjGm5DwKzAjz4xJpump?highlight_callout=98385212-1cd8-4df9-8533-8030eef12714"
          target="_blank"
          rel="noopener noreferrer">
@@ -252,7 +247,6 @@
     </div>
 
     <div class="disclaimer">
-
       <p>
         <strong>Disclaimer:</strong>
         $BULLBUY is a meme coin created for entertainment purposes only
@@ -263,39 +257,28 @@
       <p style="margin-top: 8px;">
         © 2026 BullBuy Coin. All rights reserved.
       </p>
-
     </div>
-
   </footer>
 
   <script>
-
     function copyCA() {
-
       const caText = document.getElementById("ca").innerText.trim();
 
       navigator.clipboard.writeText(caText).then(() => {
-
         const btn = document.querySelector('.copy-btn');
 
         btn.innerText = "Copied!";
         btn.style.background = "#38ef7d";
 
         setTimeout(() => {
-
           btn.innerText = "Copy";
           btn.style.background = "#00d2ff";
-
         }, 2000);
 
       }).catch(() => {
-
-        alert("Unable to copy the contract address.");
-
+        alert("Unable to copy the Pump.fun link.");
       });
-
     }
-
   </script>
 
 </body>
